@@ -1,0 +1,7 @@
+name: Bail early
+description: If any jobs or triggered builds fail, cancel the parent build immediately
+author: https://github.com/uber-workflow
+configuration:
+  properties:
+    if:
+      type: string
