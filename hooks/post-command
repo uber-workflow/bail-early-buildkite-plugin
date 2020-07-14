@@ -5,6 +5,11 @@ if [ "$BUILDKITE_COMMAND_EXIT_STATUS" = "0" ]; then
   exit 0
 fi
 
+if [ "$BUILDKITE_COMMAND_EXIT_STATUS" = "-1" ]; then
+  echo "canceled status code -1 is not considered a failure; exiting"
+  exit 0
+fi
+
 if [ -z "$BUILDKITE_TOKEN" ]; then
   echo "BUILDKITE_TOKEN not provided; exiting"
   exit 0
