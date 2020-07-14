@@ -48,7 +48,7 @@ function add_annotation() {
 
 function cancel_build() {
   local org="$BUILDKITE_ORGANIZATION_SLUG"
-  local pipeline="${BUILDKITE_TRIGGERED_FROM_PIPELINE_SLUG:-$BUILDKITE_PIPELINE_SLUG}"
+  local pipeline="${BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG:-$BUILDKITE_PIPELINE_SLUG}"
   local build_number="${BUILDKITE_TRIGGERED_FROM_BUILD_NUMBER:-$BUILDKITE_BUILD_NUMBER}"
 
   curl -s "https://api.buildkite.com/v2/organizations/${org}/pipelines/${pipeline}/builds/$build_number/cancel" \
