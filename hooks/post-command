@@ -27,7 +27,7 @@ if [ -n "$if_condition" ]; then
 fi
 
 function add_annotation() {
-  local annotation_body="This build was canceled early due to failure in <a href='https://buildkite.com/${BUILDKITE_ORGANIZATION_SLUG}/${BUILDKITE_PIPELINE_SLUG}/builds/${BUILDKITE_BUILD_NUMBER}#${BUILDKITE_JOB_ID}'>${BUILDKITE_ORGANIZATION_SLUG}/${BUILDKITE_PIPELINE_SLUG}#${BUILDKITE_BUILD_NUMBER}</a>."
+  local annotation_body="This build was canceled early due to a failure in <a href='https://buildkite.com/${BUILDKITE_ORGANIZATION_SLUG}/${BUILDKITE_PIPELINE_SLUG}/builds/${BUILDKITE_BUILD_NUMBER}#${BUILDKITE_JOB_ID}'>${BUILDKITE_ORGANIZATION_SLUG}/${BUILDKITE_PIPELINE_SLUG}#${BUILDKITE_BUILD_NUMBER}</a>."
   local build_id="${BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG:-$BUILDKITE_BUILD_ID}"
   local graphql_build_id="$(printf "Build---%s" "$build_id" | base64)"
   local graphql_query="mutation {
