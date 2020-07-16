@@ -14,7 +14,7 @@
 steps:
   - command: 'echo hi'
     plugins:
-      - 'uber-workflow/bail-early#master': ~
+      - 'uber-workflow/bail-early#v1.0.0': ~
 ```
 
 Any step using this plugin will cause the parent build to bail with an annotation linking to the failed job.
@@ -29,6 +29,6 @@ If you need to limit when the plugin is enabled, you can use the `if` parameter.
 steps:
   - command: 'echo hi'
     plugins:
-      - 'uber-workflow/bail-early#master':
+      - 'uber-workflow/bail-early#v1.0.0':
         if: '"$SHOULD_BAIL_EARLY" = "true"'
 ```
