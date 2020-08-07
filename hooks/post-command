@@ -36,7 +36,7 @@ function add_annotation() {
   local build_id="${BUILDKITE_TRIGGERED_FROM_BUILD_ID:-$BUILDKITE_BUILD_ID}"
   local graphql_build_id="$(printf "Build---%s" "$build_id" | base64)"
   local graphql_query="mutation {
-    buildAnnotate(input: {buildID: \"$graphql_build_id\", body: \"$annotation_body\", style: ERROR}) {
+    buildAnnotate(input: {buildID: \"$graphql_build_id\", body: \"$annotation_body\", context: "bail-early-plugin", style: ERROR}) {
       annotation {
         uuid
       }
